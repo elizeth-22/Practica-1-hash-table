@@ -8,12 +8,17 @@ public class TablaHash{
         tabla[i] = new ArrayList<Nodo>();
     }
 
-    private int hash(int key){
-        return key % tabla.length;
-    }
-
-    public void insertar (int key, String valor){
+  public int buscar(int key){
+        
         int indice = obtenerIndice(key);
         ArrayList<Nodo> cubeta = tabla[indice];
-    } 
+
+        for (Nodo nodo : cubeta ) {
+            if (nodo.key == key) {
+                return nodo.valor;
+            } else {
+                return null;
+            }
+        }
+    }
 }
