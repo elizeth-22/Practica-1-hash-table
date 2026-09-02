@@ -22,7 +22,7 @@ public class TablaHash{
         for (Nodo nodo : cubeta) {
             if (nodo.key == key) {
                 nodo.valor = valor;
-                retun;
+                return;
             }
         }
         Nodo nuevoNodo = new Nodo();
