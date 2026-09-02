@@ -12,26 +12,35 @@ public class TablaHash{
     
 
     private int hash(int key){
-        return key % tabla.length;
+        int indice = key % tabla.length;
+        return indice;
     }
 
     public void insertar (int key, String valor){
         int indice = hash(key);
         ArrayList<Nodo> cubeta = tabla[indice];
+        for (Nodo nodo : cubeta) {
+            if (nodo.key == key) {
+                nodo.valor = valor;
+                retun;
+            }
+        }
+        Nodo nuevoNodo = new Nodo();
+        nuevoNodo.key = key;
+        nuevoNodo.valor = valor;
+        cubeta.add(nuevoNodo);
     } 
 
-    public int buscar(int key){
-            
+    public String buscar(int key){
         int indice = hash(key);
         ArrayList<Nodo> cubeta = tabla[indice];
 
         for (Nodo nodo : cubeta ) {
             if (nodo.key == key) {
                 return nodo.valor;
-            } else {
-                return null;
             }
         }
+        return null;
     }
 
     /**
