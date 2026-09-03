@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+
+/**
+ *  Clase que implementa una tabla hash con encadenamiento separado para manejar colisiones.
+ */
 public class TablaHash{
     ArrayList<Nodo>[] tabla;
 
@@ -10,12 +14,22 @@ public class TablaHash{
         } 
     }
     
-
-    private int hash(int key){
+    /** 
+     * Metodo privado para calcular el indice hash de una clave.
+     * @param key la clave para calcular el indice hash.
+     * @return el indice hash.
+     */
+    public int hash(int key){
         int indice = key % tabla.length;
         return indice;
     }
 
+    /**
+     * Metodo público para insertar un par clave y valor (Nodo) en la tabla hash.
+     * 
+     * @param key la clave del elemento a insertar.
+     * @param valor el valor asociado a la clave.
+     */
     public void insertar (int key, String valor){
         int indice = hash(key);
         ArrayList<Nodo> cubeta = tabla[indice];
@@ -25,12 +39,28 @@ public class TablaHash{
                 return;
             }
         }
-        Nodo nuevoNodo = new Nodo();
-        nuevoNodo.key = key;
-        nuevoNodo.valor = valor;
+        Nodo nuevoNodo = new Nodo(key, valor);
         cubeta.add(nuevoNodo);
     } 
 
+    public boolean eliminar(int key) {
+        int pos = hash(key);
+        ArrayList<Nodo> cubeta = tabla[pos];
+        for(Nodo nodo : cubeta){
+            if(nodo.key == key){
+                cubeta.remove(nodo);
+                return true;
+            }
+        }
+        return false;
+    }
+    
+
+    /**
+     * Método público para buscar un valor asociado a una clave en la tabla hash.
+     * @param key la clave para buscar.
+     * @return el valor asociado a la clave, o null si no se encuentra.
+     */
     public String buscar(int key){
         int indice = hash(key);
         ArrayList<Nodo> cubeta = tabla[indice];
@@ -46,7 +76,7 @@ public class TablaHash{
     /**
      * Metodo publico para generar la impresión visual de la tabla
      * @return impresion de la tabla
-     * */
+     */
     @Override
     public String toString(){
         String acumula = ""; 
