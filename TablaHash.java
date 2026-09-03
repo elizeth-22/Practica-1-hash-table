@@ -43,6 +43,18 @@ public class TablaHash{
         cubeta.add(nuevoNodo);
     } 
 
+    public boolean eliminar(int key) {
+        int pos = hash(key);
+        ArrayList<Nodo> cubeta = tabla[pos];
+        for(Nodo nodo : cubeta){
+            if(nodo.key == key){
+                cubeta.remove(nodo);
+                return true;
+            }
+        }
+        return false;
+    }
+    
     /**
      * Método público para buscar un valor asociado a una clave en la tabla hash.
      * @param key la clave para buscar.
