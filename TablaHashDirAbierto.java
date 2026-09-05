@@ -1,5 +1,6 @@
 public class TablaHashDirAbierto {
     Nodo[] tabla;
+    static Nodo DELETED = new Nodo(-1, "DELETED");
 
     public TablaHashDirAbierto() {
         tabla = new Nodo[7];
@@ -14,13 +15,44 @@ public class TablaHashDirAbierto {
         int i = 0;
         while (true) {
             int indice = hash(key, i);
-            if (tabla[indice] = null) {
-                tabla[indice] = new Nodo(int key, String valor);
+            if (tabla[indice] == null) {
+                tabla[indice] = new Nodo(key, valor);
+                break;
             } else if (tabla[indice].key == key) {
                 tabla[indice].valor = valor;
                 break;
+            } else {
+                i++;
             }
         }
     }
-            
+
+    public boolean eliminar(int key) {
+        int i = 0;
+        while (true) {
+            int indice = hash(key, i);
+            if (tabla[indice] == null) {
+                return false;
+            } else if (tabla[indice].key == key) {
+                tabla[indice] = DELETED;
+                return true;
+            } else {
+                i++;
+            }
+        }
+    }
+
+    public String buscar(int key){
+        int i = 0; 
+        while(true) {
+            int indice = hash(key, i);
+            if(tabla[indice] == null){
+                return null;
+            } else if (tabla[indice].key == key){
+                return tabla[indice].valor;
+            } else {
+                i++;
+            }
+        }
+    }
 }
