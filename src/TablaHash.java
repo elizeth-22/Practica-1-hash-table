@@ -9,7 +9,6 @@ public class TablaHash{
     /**
      * Constructor de la clase TablaHash. Inicializa la tabla hash con un tamaño inicial de 7 y crea una lista vacía para cada cubeta.  
      */
-
     public TablaHash(){
         tabla = new ArrayList[7];
         for (int i = 0; i < tabla.length; i++){
@@ -107,4 +106,17 @@ public class TablaHash{
         return acumula;
     }
 
+    /**
+     * Metodo para calcular el factor de carga de la tabla hash
+     * @return factor de carga
+     */
+    public double factorDeCarga() {
+        int tamanoTotal = 0;
+        double factorCarga;
+        for (int i = 0; i < tabla.length; i++) {
+            tamanoTotal = tamanoTotal + tabla[i].size();
+        }
+        factorCarga = (double) tamanoTotal / tabla.length;
+        return factorCarga;
+    }
 }
