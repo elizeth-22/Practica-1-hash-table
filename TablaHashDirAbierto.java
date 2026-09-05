@@ -10,4 +10,17 @@ public class TablaHashDirAbierto {
         return indice;
     }
 
+    public void insertar(int key, String valor) {
+        int i = 0;
+        while (true) {
+            int indice = hash(key, i);
+            if (tabla[indice] = null) {
+                tabla[indice] = new Nodo(int key, String valor);
+            } else if (tabla[indice].key == key) {
+                tabla[indice].valor = valor;
+                break;
+            }
+        }
+    }
+            
 }
