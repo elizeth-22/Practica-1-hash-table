@@ -15,10 +15,10 @@ public class TablaHashDirAbierto {
         int i = 0;
         while (true) {
             int indice = hash(key, i);
-            if (tabla[indice] == null) {
+            if (tabla[indice] == null || tabla[indice] == DELETED) {
                 tabla[indice] = new Nodo(key, valor);
                 break;
-            } else if (tabla[indice].key == key) {
+            } else if (tabla[indice] != DELETED && tabla[indice].key == key) {
                 tabla[indice].valor = valor;
                 break;
             } else {
@@ -33,7 +33,7 @@ public class TablaHashDirAbierto {
             int indice = hash(key, i);
             if (tabla[indice] == null) {
                 return false;
-            } else if (tabla[indice].key == key) {
+            } else if (tabla[indice] != DELETED && tabla[indice].key == key) {
                 tabla[indice] = DELETED;
                 return true;
             } else {
@@ -48,7 +48,7 @@ public class TablaHashDirAbierto {
             int indice = hash(key, i);
             if(tabla[indice] == null){
                 return null;
-            } else if (tabla[indice].key == key){
+            } else if (tabla[indice] != DELETED && tabla[indice].key == key){
                 return tabla[indice].valor;
             } else {
                 i++;
