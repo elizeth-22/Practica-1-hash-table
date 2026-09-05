@@ -55,4 +55,14 @@ public class TablaHashDirAbierto {
             }
         }
     }
+
+    public double factorDeCarga() {
+        int tamanoTotal = 0;
+        for (int i = 0; i < tabla.length; i++) {
+            if (tabla[i] != null && tabla[i] != DELETED) {
+                tamanoTotal++;
+            }
+        }
+        return (double) tamanoTotal / tabla.length;
+    }
 }
