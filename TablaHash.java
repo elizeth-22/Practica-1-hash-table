@@ -1,13 +1,16 @@
 import java.util.ArrayList;
 
-
 /**
  *  Clase que implementa una tabla hash con encadenamiento separado para manejar colisiones.
  */
 public class TablaHash{
     ArrayList<Nodo>[] tabla;
 
-    public void tabla(){
+    /**
+     * Constructor de la clase TablaHash. Inicializa la tabla hash con un tamaño inicial de 7 y crea una lista vacía para cada cubeta.  
+     */
+
+    public TablaHash(){
         tabla = new ArrayList[7];
         for (int i = 0; i < tabla.length; i++){
             tabla[i] = new ArrayList<Nodo>();
@@ -21,11 +24,14 @@ public class TablaHash{
      */
     public int hash(int key){
         int indice = key % tabla.length;
+        if (indice < 0){
+            indice += tabla.length;
+        }
         return indice;
     }
 
     /**
-     * Metodo público para insertar un par clave y valor (Nodo) en la tabla hash.
+     * Metodo para insertar un par clave y valor (Nodo) en la tabla hash.
      * 
      * @param key la clave del elemento a insertar.
      * @param valor el valor asociado a la clave.
@@ -43,6 +49,11 @@ public class TablaHash{
         cubeta.add(nuevoNodo);
     } 
 
+    /**
+     * Metodo para eliminar un elemento de la tabla hash dado su clave.
+     * @param key la clave del elemento a eliminar.
+     * @return true si el elemento fue eliminado, false si no se encontró la clave.
+     */
     public boolean eliminar(int key) {
         int pos = hash(key);
         ArrayList<Nodo> cubeta = tabla[pos];
@@ -56,7 +67,7 @@ public class TablaHash{
     }
     
     /**
-     * Método público para buscar un valor asociado a una clave en la tabla hash.
+     * Método para buscar un valor asociado a una clave en la tabla hash.
      * @param key la clave para buscar.
      * @return el valor asociado a la clave, o null si no se encuentra.
      */
@@ -73,7 +84,7 @@ public class TablaHash{
     }
 
     /**
-     * Metodo publico para generar la impresión visual de la tabla
+     * Metodo para generar la impresión de ta tabla en la terminal
      * @return impresion de la tabla
      */
     @Override
