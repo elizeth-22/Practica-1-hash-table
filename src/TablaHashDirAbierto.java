@@ -5,7 +5,10 @@
  */
 public class TablaHashDirAbierto {
     Nodo[] tabla;
-    static Nodo DELETED = new Nodo(-1, "DELETED");
+    /**
+     * Nodo especial que representa un elemento eliminado en la tabla hash.
+     */
+    static Nodo DELETED = new Nodo(-17, "DELETED");
 
     public TablaHashDirAbierto() {
         tabla = new Nodo[7];
