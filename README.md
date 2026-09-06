@@ -9,7 +9,7 @@ Java<br>
 
 ## 2. instrucciones para ejecutar el programa:
 Primero para compilar: javac -cp src test/Main.java <br>
-O para compilar la tabla con direccionamiento abierto: javac -cp src test/MainDirAbierto.java
+O para compilar la tabla con direccionamiento abierto: javac -cp src test/MainDirAbierto.java <br>
 Despues para ejecutar con las pruebas: java -cp test:src Main
 
 ## 3. explicación de cómo ejecutar los casos de prueba;
