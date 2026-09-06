@@ -45,18 +45,19 @@ public class TablaHashDirAbierto {
      */
     public void insertar(int key, String valor) {
         int i = 0;
-        while (true) {
+        while (i < tabla.length) {
             int indice = hash(key, i);
             if (tabla[indice] == null || tabla[indice] == DELETED) {
                 tabla[indice] = new Nodo(key, valor);
-                break;
+                return;
             } else if (tabla[indice] != DELETED && tabla[indice].key == key) {
                 tabla[indice].valor = valor;
-                break;
+                return;
             } else {
                 i++;
             }
-        }
+        } 
+        throw new RuntimeException("Tabla llena, no se puede insertar el elemento.");
     }
 
     /**
@@ -71,7 +72,7 @@ public class TablaHashDirAbierto {
      */
     public boolean eliminar(int key) {
         int i = 0;
-        while (true) {
+        while (i < tabla.length) {
             int indice = hash(key, i);
             if (tabla[indice] == null) {
                 return false;
@@ -82,6 +83,7 @@ public class TablaHashDirAbierto {
                 i++;
             }
         }
+        return false;
     }
 
 
