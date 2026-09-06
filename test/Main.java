@@ -59,5 +59,28 @@ public class Main {
             System.out.println("Prueba actualizacion de llave : ERROR");
         }
         System.out.println(tabla);
+        //Tabla llena
+        tabla.eliminar(23);
+        tabla.eliminar(10);
+        tabla.eliminar(31);
+        tabla.eliminar(18);
+
+        tabla.insertar(0, "A");
+        tabla.insertar(1, "B");
+        tabla.insertar(2, "C");
+        tabla.insertar(3, "D");
+        tabla.insertar(4, "F");
+        tabla.insertar(5, "G");
+        tabla.insertar(6, "H");
+
+        if("A".equals(tabla.buscar(0)) && "B".equals(tabla.buscar(1)) && "C".equals(tabla.buscar(2)) && "D".equals(tabla.buscar(3)) &&
+        "F".equals(tabla.buscar(4)) && "G".equals(tabla.buscar(5)) && "H".equals(tabla.buscar(6))){
+            System.out.println("Prueba tabla llena: OK");
+        }else{
+            System.out.println("Prueba tabla llena: ERROR");
+        }
+        System.out.println(tabla);
     }
+
+    
 }
