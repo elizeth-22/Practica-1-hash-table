@@ -8,12 +8,13 @@ Ya que las tablas hash se encargan de distribuir una cantidad enorme de llaves, 
 Java<br>
 
 ## 2. instrucciones para ejecutar el programa:
-Primero para compilar: javac src/*.java test/*.java
-Despues para ejecutar con las pruebas: java -cp src:test Main
+Primero para compilar: javac -cp src test/Main.java <br>
+O para compilar la tabla con direccionamiento abierto: javac -cp src test/MainDirAbierto.java <br>
+Despues para ejecutar con las pruebas: java -cp test:src Main
 
 ## 3. explicación de cómo ejecutar los casos de prueba;
-ejecutar: java -cp src:test Main
-
+ejecutar: java -cp test:src Main <br> 
+ejecutar con direccionamiento abierto: java -cp test:src MainDirAbierto
 ## 4. explicación de la función hash<br>
 Calcula el modulo de la llave, para así obtener el indice, despues en casos de las llaves negativas se crea un espacio en la tabla con indice positivo. <br>
 
