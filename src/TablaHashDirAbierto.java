@@ -88,14 +88,10 @@ public class TablaHashDirAbierto {
 
 
     /**
-     * Metodo para buscar un elemento en la tabla hash dado su key
-     * @param key la clave del elemento a buscar
-     * @return el valor asociado a la clave, o null si no se encuentra
-    /**
-     * Busca un elemento asociado a una clave dentro de la tabla 
-     * @param key
-     * @return el valor si se encontro la llave
-     * @return regresa null si la clave no existe
+     * Busca un elemento asociado a una clave dentro de la tabla hash.
+     * 
+     * @param key La clave entera del elemento a buscar.
+     * @return El valor asociado a la clave, o null si la clave no existe.
      */
     public String buscar(int key){
         int i = 0; 

@@ -8,13 +8,14 @@ Ya que las tablas hash se encargan de distribuir una cantidad enorme de llaves, 
 Java<br>
 
 ## 2. instrucciones para ejecutar el programa:
-Primero para compilar: javac -cp src test/Main.java <br>
-O para compilar la tabla con direccionamiento abierto: javac -cp src test/MainDirAbierto.java <br>
-Despues para ejecutar con las pruebas: java -cp test:src Main
+Primero para compilar: **javac src/*.java test/*.java** para ambos programas usar este primer comando<br>
+Para ejecutar Tabla Hash usar el comando:**java -cp src:test Main**<br>
+Para ejecutar Tabla Hash Dir Abierto: **java -cp src:test MainDirAbierto**<br>
 
 ## 3. explicación de cómo ejecutar los casos de prueba;
-ejecutar: java -cp test:src Main <br> 
-ejecutar con direccionamiento abierto: java -cp test:src MainDirAbierto
+ejecutar: **java -cp test:src Main** <br> 
+ejecutar con direccionamiento abierto: **java -cp test:src MainDirAbierto** <br>
+
 ## 4. explicación de la función hash<br>
 Calcula el modulo de la llave, para así obtener el indice, despues en casos de las llaves negativas se crea un espacio en la tabla con indice positivo. <br>
 
@@ -32,6 +33,25 @@ En Tabla Hash, se usa el manejo de la colisión donde todas conviven en un Array
 
 ## 8. factor de carga final obtenido durante sus pruebas.<br>
 Hay 4 elementos y un total de ocupación de 7 cubetas por lo que: <br>
-FACTOR DE CARGA: 4/7 ≈ 0.5714.<br>
+FACTOR DE CARGA PARA EL CASO DE 3: 3/7 ≈ 0.4285.<br>
+FACTOR DE CARGA PARA EL CASO DE 7: 7/7 = 1.<br>
 
-documentación en el archivo README.md.
+
+## Documentación en el archivo README.md:
+### Implementación de dos variantes de las tablas de dispersión para el manejo de dispersiones:<br>
+
+**TablaHash**: Tabla de dispersión con encadenamiento separado (uso de ArrayList como cubetas).<br>
+**TablaHashDirAbierto**: Tabla de dispersión con dirección bierto (recorrido lineal y DELETED).<br>
+**Nodo**: Clase que representa los elementos guardados mediante par (key, valor).<br>
+**Main y MainDirAbierto**: Programas para ejecutar las pruebas integradas de ambas tablas.<br>
+
+## METODOS USADOS:
+ **Método** 				**Descripción**
+ **insertar(key, valor)**	Inserta un par clave-valor o actualiza el valor si la llave ya existe.<br>
+ **buscar(key)**			Devuelve el valor asociado a la clave o null si no existe.<br>
+ **eliminar(key)**			Elimina el elemento asociado a la clave.<br>
+ **factorDeCarga()**		Calcula y retorna el factor de carga actual de la tabla.<br>
+ **toString()**				Muestra la representación visual de la tabla en terminal.<br>
+
+
+
